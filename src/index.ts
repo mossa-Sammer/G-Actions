@@ -29,3 +29,4 @@ connection.query('SELECT 1 + 1').then((res) => {
 });
 
 const a = 3;
+const b = 2;
