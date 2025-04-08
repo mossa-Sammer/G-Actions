@@ -22,7 +22,7 @@ export default defineConfig([
     },
     rules: {
       // ESLint recommended rules
-      'no-console': 'warn', // Warn about console statements
+      'no-console': 'error', // Warn about console statements
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       eqeqeq: ['warn', 'always'],
 
