@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgres://postgres:example@database:5432/postgres
+    depends_on:
+      - database
+    command: npm run dev
+  database:
+    image: postgres:17.4-alpine
+    restart: always
+    shm_size: 512mb
+    ports:
+      - 8080:5432
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
